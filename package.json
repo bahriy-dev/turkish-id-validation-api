@@ -1,0 +1,16 @@
+{
+  "name": "tr-validator-api",
+  "version": "1.0.0",
+  "description": "Zero-dependency REST web service that validates Turkish identifiers (TCKN, VKN, IBAN, phone, plate, postal code) for e-commerce checkout and invoicing.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Bahri YILMAZ (https://bahriyilmaz.dev)",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "start": "node src/server.ts",
+    "dev": "node --watch src/server.ts",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "npx -y -p typescript@5.9 tsc --noEmit"
+  },
+  "keywords": ["turkey", "tckn", "vkn", "iban", "validation", "rest-api", "web-service", "e-commerce", "openapi", "zero-dependency"]
+}
