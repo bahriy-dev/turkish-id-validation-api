@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  validateTckn, completeTckn, validateVkn, vknCheckDigit, validateIban, ibanCheckDigits,
+  validateTckn, completeTckn, validateVkn, vknCheckDigit, validateTaxId, validateIban, ibanCheckDigits,
   validatePhone, validatePlate, validatePostalCode, listProvinces, provinceByCode,
 } from '../src/validators/index.ts';
 
@@ -29,6 +29,23 @@ describe('VKN', () => {
       assert.ok(d >= 0 && d <= 9);
     }
   });
+});
+
+describe('Tax ID (VKN or TCKN)', () => {
+  it('accepts a VKN as a company', () => {
+    const r = validateTaxId('1234567890');
+    assert.equal(r.valid, true);
+    assert.deepEqual(r.details, { kind: 'vkn', holder: 'company' });
+  });
+  it('accepts a TCKN as an individual', () => {
+    assert.deepEqual(validateTaxId('10000000146').details, { kind: 'tckn', holder: 'individual' });
+  });
+  it('reports which check failed', () => {
+    const r = validateTaxId('10000000147');
+    assert.equal(r.valid, false);
+    assert.equal(r.details?.kind, 'tckn');
+  });
+  it('rejects other lengths', () => assert.match(validateTaxId('123').reason!, /10-digit VKN or an 11-digit TCKN/));
 });
 
 describe('IBAN', () => {

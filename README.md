@@ -18,6 +18,7 @@ built-in type stripping.
 | --- | --- | --- |
 | `tckn` | T.C. Kimlik No checksum (11 digits) | — |
 | `vkn` | Vergi Kimlik No checksum (10 digits, GİB algorithm) | — |
+| `tax-id` | Invoice "VKN / TCKN" field: picks the right check by length | `kind` (`vkn` / `tckn`), `holder` (`company` / `individual`) |
 | `iban` | TR format, reserve digit, ISO 13616 mod-97 | bank code, bank name, grouped format |
 | `phone` | `+90`, `0090`, `0…` and free-form input | E.164, national format, mobile / landline / 444 / 850 |
 | `plate` | province 01–81, letter/digit rules | formatted plate, province |
@@ -32,7 +33,7 @@ built-in type stripping.
 git clone https://github.com/bahriy-dev/tr-validator-api.git
 cd tr-validator-api
 npm start          # http://localhost:3000
-npm test           # node:test, 43 tests
+npm test           # node:test, 47 tests
 ```
 
 Or with Docker:
