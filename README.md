@@ -1,6 +1,6 @@
-# tr-validator-api
+# Turkish ID Validation API
 
-[![CI](https://github.com/bahriy-dev/tr-validator-api/actions/workflows/ci.yml/badge.svg)](https://github.com/bahriy-dev/tr-validator-api/actions/workflows/ci.yml)
+[![CI](https://github.com/bahriy-dev/turkish-id-validation-api/actions/workflows/ci.yml/badge.svg)](https://github.com/bahriy-dev/turkish-id-validation-api/actions/workflows/ci.yml)
 ![Node](https://img.shields.io/badge/node-%E2%89%A522.18-339933?logo=nodedotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)
@@ -29,8 +29,8 @@ built-in type stripping.
 ## Quick start
 
 ```bash
-git clone https://github.com/bahriy-dev/tr-validator-api.git
-cd tr-validator-api
+git clone https://github.com/bahriy-dev/turkish-id-validation-api.git
+cd turkish-id-validation-api
 npm start          # http://localhost:3000
 npm test           # node:test, 43 tests
 ```
