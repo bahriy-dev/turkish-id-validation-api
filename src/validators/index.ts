@@ -1,6 +1,6 @@
 import type { ValidationResult } from '../types.ts';
 import { validateTckn } from './tckn.ts';
-import { validateVkn } from './vkn.ts';
+import { validateVkn, validateTaxId } from './vkn.ts';
 import { validateIban } from './iban.ts';
 import { validatePhone } from './phone.ts';
 import { validatePlate, validatePostalCode } from './address.ts';
@@ -8,6 +8,7 @@ import { validatePlate, validatePostalCode } from './address.ts';
 export const VALIDATORS = {
   tckn: validateTckn,
   vkn: validateVkn,
+  'tax-id': validateTaxId,
   iban: validateIban,
   phone: validatePhone,
   plate: validatePlate,
@@ -21,7 +22,7 @@ export function isValidatorType(t: unknown): t is ValidatorType {
 }
 
 export { validateTckn, completeTckn } from './tckn.ts';
-export { validateVkn, vknCheckDigit } from './vkn.ts';
+export { validateVkn, vknCheckDigit, validateTaxId, detectTaxIdKind } from './vkn.ts';
 export { validateIban, ibanCheckDigits, TR_BANKS } from './iban.ts';
 export { validatePhone } from './phone.ts';
 export { validatePlate, validatePostalCode } from './address.ts';
