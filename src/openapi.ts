@@ -1,4 +1,4 @@
-const types = ['tckn', 'vkn', 'iban', 'phone', 'plate', 'postal-code'];
+const types = ['tckn', 'vkn', 'tax-id', 'iban', 'phone', 'plate', 'postal-code'];
 
 const result = {
   type: 'object',
@@ -15,6 +15,7 @@ const result = {
 const examples: Record<string, string> = {
   tckn: '10000000146',
   vkn: '1234567890',
+  'tax-id': '1234567890',
   iban: 'TR330006100519786457841326',
   phone: '05321234567',
   plate: '34ABC123',

@@ -1,4 +1,5 @@
 import type { ValidationResult } from '../types.ts';
+import { validateTckn } from './tckn.ts';
 
 /**
  * Vergi Kimlik Numarası (Turkish tax ID, 10 digits) checksum validation,
@@ -38,4 +39,18 @@ export function detectTaxIdKind(value: string): 'tckn' | 'vkn' | null {
   if (/^\d{11}$/.test(v)) return 'tckn';
   if (/^\d{10}$/.test(v)) return 'vkn';
   return null;
+}
+
+/**
+ * Validates the "VKN / TCKN" field of an invoice: 10 digits means a company tax number,
+ * 11 digits means an individual's national ID (sole proprietors and e-Arşiv invoices use it).
+ */
+export function validateTaxId(input: string): ValidationResult {
+  const value = String(input ?? '').replace(/\s+/g, '');
+  const kind = detectTaxIdKind(value);
+  if (!kind) return { valid: false, value, reason: 'Tax ID must be a 10-digit VKN or an 11-digit TCKN' };
+  const result = kind === 'vkn' ? validateVkn(value) : validateTckn(value);
+  return result.valid
+    ? { ...result, details: { kind, holder: kind === 'vkn' ? 'company' : 'individual' } }
+    : { ...result, details: { kind } };
 }
