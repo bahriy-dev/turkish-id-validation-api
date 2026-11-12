@@ -1,10 +1,13 @@
 {
-  "name": "tr-validator-api",
+  "name": "turkish-id-validation-api",
   "version": "1.0.0",
   "description": "Zero-dependency REST web service that validates Turkish identifiers (TCKN, VKN, IBAN, phone, plate, postal code) for e-commerce checkout and invoicing.",
   "type": "module",
   "license": "MIT",
   "author": "Bahri YILMAZ <bahriyiilmaz@icloud.com> (https://bahriyilmaz.dev)",
+  "repository": { "type": "git", "url": "git+https://github.com/bahriy-dev/turkish-id-validation-api.git" },
+  "homepage": "https://github.com/bahriy-dev/turkish-id-validation-api#readme",
+  "bugs": "https://github.com/bahriy-dev/turkish-id-validation-api/issues",
   "engines": { "node": ">=22.18" },
   "scripts": {
     "start": "node src/server.ts",
